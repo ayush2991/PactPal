@@ -4,9 +4,8 @@ import { BoltFace } from './BoltFace';
 import { EmberFace } from './EmberFace';
 import { HootFace } from './HootFace';
 import { PipFace } from './PipFace';
-import { SproutFace } from './SproutFace';
 
-export type PetId = 'pip' | 'ember' | 'hoot' | 'bolt' | 'sprout';
+export type PetId = 'pip' | 'ember' | 'hoot' | 'bolt';
 
 export interface PetDef {
   id: PetId;
@@ -69,20 +68,6 @@ export const PET_DEFS: Record<PetId, PetDef> = {
       steady: { label: 'On Track', flavor: 'Bolt is humming along fine. Keep the charge up.' },
       happy: { label: 'Happy', flavor: 'Bolt is humming along, lights fully lit.' },
       thriving: { label: 'Thriving', flavor: 'Bolt is levitating, charged cyan and sparking with energy.' },
-    },
-  },
-  sprout: {
-    id: 'sprout',
-    name: 'Sprout',
-    dot: '#3fb75f',
-    concept: 'A potted seedling. Stands upright and blooms when tended; wilts brown and droops over a cracked pot when neglected.',
-    Face: SproutFace,
-    moodCopy: {
-      fading: { label: 'Fading', flavor: 'Sprout has wilted to a single curled leaf over a dry pot.' },
-      worried: { label: 'Worried', flavor: 'Sprout is drooping — a pact is running hot.' },
-      steady: { label: 'On Track', flavor: 'Sprout is growing well, no bloom yet. Keep it watered.' },
-      happy: { label: 'Happy', flavor: 'Sprout is upright with fresh leaves unfurling.' },
-      thriving: { label: 'Thriving', flavor: 'Sprout is thriving — full bloom, every pact on pace.' },
     },
   },
 };

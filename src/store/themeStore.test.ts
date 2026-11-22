@@ -153,16 +153,29 @@ describe('themeStore', () => {
     expect(modePreference!).toBe('system');
   });
 
+  it('falls back to default when a previously persisted themeId is no longer in the registry', () => {
+    let themeId: string;
+    jest.isolateModules(() => {
+      const { SQLiteSettingsRepository } = require('./settingsRepository');
+      const repo = new SQLiteSettingsRepository('pactpal.db');
+      repo.set('themeId', 'sunrise');
+
+      const { useThemeStore } = require('./themeStore');
+      themeId = useThemeStore.getState().themeId;
+    });
+    expect(themeId!).toBe('default');
+  });
+
   it('setThemeId writes through to the settings repository', () => {
     let storedThemeId: string | undefined;
     jest.isolateModules(() => {
       const { useThemeStore } = require('./themeStore');
-      useThemeStore.getState().setThemeId('sunrise');
+      useThemeStore.getState().setThemeId('terminal');
 
       const { SQLiteSettingsRepository } = require('./settingsRepository');
       storedThemeId = new SQLiteSettingsRepository('pactpal.db').get('themeId');
     });
-    expect(storedThemeId).toBe('sunrise');
+    expect(storedThemeId).toBe('terminal');
   });
 
   it('setModePreference writes through to the settings repository', () => {

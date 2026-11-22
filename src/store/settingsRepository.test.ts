@@ -9,8 +9,8 @@ describe('InMemorySettingsRepository', () => {
   it('returns the most recently set value for a key', () => {
     const repo = new InMemorySettingsRepository();
     repo.set('themeId', 'brutalist');
-    repo.set('themeId', 'sunrise');
-    expect(repo.get('themeId')).toBe('sunrise');
+    repo.set('themeId', 'terminal');
+    expect(repo.get('themeId')).toBe('terminal');
   });
 });
 

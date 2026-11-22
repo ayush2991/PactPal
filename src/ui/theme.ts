@@ -4,7 +4,7 @@ import { TaskStatus } from '../task/types';
 import { useThemeStore } from '../store/themeStore';
 
 export type Scheme = 'light' | 'dark';
-export type ThemeId = 'default' | 'brutalist' | 'neonArcade' | 'sunrise' | 'terminal';
+export type ThemeId = 'default' | 'brutalist' | 'terminal';
 
 export interface Palette {
   bg: string;
@@ -189,146 +189,6 @@ const brutalistDarkColors: Palette = {
   statusInk: { fresh: '#7a7aff', mid: '#00c880', urgent: '#ff5a3a', done: '#b388ff' },
 };
 
-// Deep purple-black void with magenta/cyan neon accents — an arcade-cabinet
-// mood, deliberately far from the neutral grays of the default dark theme.
-const neonArcadeColors: Palette = {
-  bg: '#0b0014',
-  bgElevated: '#120022',
-  panel: '#1a0330',
-  panel2: '#24044a',
-  border: '#3d0a6b',
-  text: '#f5eaff',
-  textDim: '#b9a4d9',
-  textFaint: '#8c7ca5',
-
-  fresh: '#39ff9e',
-  mid: '#ffe14d',
-  urgent: '#ff2e88',
-  failed: '#867798',
-  done: '#22e0ff',
-
-  accent: '#ff2e88',
-  backdrop: 'rgba(10,0,20,0.65)',
-  failedCardBg: '#180226',
-  failedCardBorder: '#3d0a6b',
-  trackBg: '#24044a',
-  urgentBorderAlpha: 'rgba(255,46,136,0.5)',
-  badgeFailedText: '#b9a4d9',
-
-  badgeFreshBg: 'rgba(57,255,158,0.16)',
-  badgeMidBg: 'rgba(255,225,77,0.16)',
-  badgeUrgentBg: 'rgba(255,46,136,0.2)',
-  badgeDoneBg: 'rgba(34,224,255,0.18)',
-
-  badgeInk: { fresh: '#39ff9e', mid: '#ffe14d', urgent: '#ff3f92', done: '#22e0ff' },
-  statusInk: { fresh: '#39ff9e', mid: '#ffe14d', urgent: '#ff2e88', done: '#22e0ff' },
-};
-
-// Light twin of Neon Arcade: bright lavender paper, deep-purple ink, same
-// magenta accent — status colors darkened for contrast on a light surface.
-const neonArcadeLightColors: Palette = {
-  bg: '#f5ecff',
-  bgElevated: '#ffffff',
-  panel: '#ffffff',
-  panel2: '#ede0fb',
-  border: '#caa8f0',
-  text: '#1a0330',
-  textDim: '#6b4f94',
-  textFaint: '#6f5a90',
-
-  fresh: '#0e9e63',
-  mid: '#b8860a',
-  urgent: '#d1146b',
-  failed: '#6f5a90',
-  done: '#0e7490',
-
-  accent: '#d1146b',
-  backdrop: 'rgba(26,3,48,0.35)',
-  failedCardBg: '#efe3fb',
-  failedCardBorder: '#d8c2f0',
-  trackBg: '#e6d5f7',
-  urgentBorderAlpha: 'rgba(209,20,107,0.35)',
-  badgeFailedText: '#64488c',
-
-  badgeFreshBg: 'rgba(14,158,99,0.14)',
-  badgeMidBg: 'rgba(184,134,10,0.16)',
-  badgeUrgentBg: 'rgba(209,20,107,0.16)',
-  badgeDoneBg: 'rgba(14,116,144,0.14)',
-
-  badgeInk: { fresh: '#0b7a4c', mid: '#8a6408', urgent: '#c01262', done: '#0b5b70' },
-  statusInk: { fresh: '#0c8654', mid: '#996f08', urgent: '#d1146b', done: '#0b6478' },
-};
-
-// Warm cream/peach with coral + teal accents — optimistic morning light,
-// distinct from Brutalist's stark paper/ink.
-const sunriseColors: Palette = {
-  bg: '#fff3ea',
-  bgElevated: '#ffffff',
-  panel: '#fffaf5',
-  panel2: '#ffe9d6',
-  border: '#f3c9a8',
-  text: '#3a2a20',
-  textDim: '#876d5a',
-  textFaint: '#84644b',
-
-  fresh: '#2a9d8f',
-  mid: '#e9a13b',
-  urgent: '#e8613f',
-  failed: '#7a614e',
-  done: '#3d6cb9',
-
-  accent: '#e8613f',
-  backdrop: 'rgba(58,42,32,0.35)',
-  failedCardBg: '#f6e6d8',
-  failedCardBorder: '#e3c3a0',
-  trackBg: '#ffe9d6',
-  urgentBorderAlpha: 'rgba(232,97,63,0.35)',
-  badgeFailedText: '#624f41',
-
-  badgeFreshBg: 'rgba(42,157,143,0.14)',
-  badgeMidBg: 'rgba(233,161,59,0.16)',
-  badgeUrgentBg: 'rgba(232,97,63,0.16)',
-  badgeDoneBg: 'rgba(61,108,185,0.14)',
-
-  badgeInk: { fresh: '#20766b', mid: '#965f11', urgent: '#be3817', done: '#2c4f8c' },
-  statusInk: { fresh: '#228175', mid: '#a06512', urgent: '#d33f19', done: '#30589c' },
-};
-
-// Dark/dusk twin of Sunrise: warm plum-brown afterglow instead of cream
-// morning light, same coral/teal accents brightened for a dark surface.
-const sunriseDarkColors: Palette = {
-  bg: '#2b1f26',
-  bgElevated: '#352733',
-  panel: '#33252f',
-  panel2: '#3d2c37',
-  border: '#5a4048',
-  text: '#fbe9dc',
-  textDim: '#c9a99a',
-  textFaint: '#ac9a91',
-
-  fresh: '#4ecdbd',
-  mid: '#f5b95a',
-  urgent: '#ff8562',
-  failed: '#ac9a91',
-  done: '#7aa7e8',
-
-  accent: '#ff8562',
-  backdrop: 'rgba(0,0,0,0.6)',
-  failedCardBg: '#2c2028',
-  failedCardBorder: '#4a3640',
-  trackBg: '#3d2c37',
-  urgentBorderAlpha: 'rgba(255,133,98,0.5)',
-  badgeFailedText: '#c9a99a',
-
-  badgeFreshBg: 'rgba(78,205,189,0.16)',
-  badgeMidBg: 'rgba(245,185,90,0.16)',
-  badgeUrgentBg: 'rgba(255,133,98,0.2)',
-  badgeDoneBg: 'rgba(122,167,232,0.18)',
-
-  badgeInk: { fresh: '#4ecdbd', mid: '#f5b95a', urgent: '#ff8f6f', done: '#8db6f0' },
-  statusInk: { fresh: '#4ecdbd', mid: '#f5b95a', urgent: '#ff8562', done: '#7aa7e8' },
-};
-
 // Pure-black CRT terminal — monochrome phosphor green with a single red
 // alarm hue, sharp corners, monospace throughout.
 const terminalColors: Palette = {
@@ -401,8 +261,6 @@ const terminalLightColors: Palette = {
 
 const defaultPalettes: Record<Scheme, Palette> = { dark: darkColors, light: lightColors };
 const brutalistPalettes: Record<Scheme, Palette> = { light: brutalistColors, dark: brutalistDarkColors };
-const neonArcadePalettes: Record<Scheme, Palette> = { dark: neonArcadeColors, light: neonArcadeLightColors };
-const sunrisePalettes: Record<Scheme, Palette> = { light: sunriseColors, dark: sunriseDarkColors };
 const terminalPalettes: Record<Scheme, Palette> = { dark: terminalColors, light: terminalLightColors };
 
 export function makeStatusColor(p: Palette): Record<TaskStatus, string> {
@@ -445,14 +303,6 @@ export const mono = Platform.select({
   android: 'monospace',
   default: 'monospace',
 });
-
-// A built-in condensed system stack (no bundled font) for Neon Arcade's
-// marquee-style title: iOS/Android both ship a condensed system face, this
-// is the closest widely-available web equivalent for parity in tooling.
-const condensedDisplay = 'Arial Narrow, "Helvetica Neue Condensed", sans-serif';
-
-// A built-in serif stack (no bundled font) for Sunrise's warm editorial feel.
-const serifDisplay = 'Georgia, "Iowan Old Style", "Times New Roman", serif';
 
 /**
  * Shared shape/spacing tokens so sheets, cards, and buttons across the app
@@ -534,35 +384,6 @@ export const THEME_REGISTRY: Record<ThemeId, ThemeDefinition> = {
     shape: { radius: sharpRadius, hardEdges: true },
     type: defaultType,
   },
-  neonArcade: {
-    id: 'neonArcade',
-    label: 'Neon Arcade',
-    description: 'Synthwave purple with magenta/cyan energy.',
-    colors: neonArcadePalettes,
-    shape: { radius: roundedRadius, hardEdges: false },
-    type: {
-      display: condensedDisplay,
-      body: condensedDisplay,
-      titleWeight: '900',
-      titleTracking: 2.5,
-      titleCase: 'uppercase',
-      badgeDecoration: { prefix: '▸ ' },
-    },
-  },
-  sunrise: {
-    id: 'sunrise',
-    label: 'Sunrise',
-    description: 'Warm cream/peach or dusk plum, coral and teal accents.',
-    colors: sunrisePalettes,
-    shape: { radius: roundedRadius, hardEdges: false },
-    type: {
-      display: serifDisplay,
-      body: serifDisplay,
-      titleWeight: '700',
-      titleTracking: -0.3,
-      titleCase: 'none',
-    },
-  },
   terminal: {
     id: 'terminal',
     label: 'Terminal',
@@ -581,7 +402,7 @@ export const THEME_REGISTRY: Record<ThemeId, ThemeDefinition> = {
 };
 
 /** Display order for the Settings screen's theme picker. */
-export const THEME_ORDER: ThemeId[] = ['default', 'brutalist', 'neonArcade', 'sunrise', 'terminal'];
+export const THEME_ORDER: ThemeId[] = ['default', 'brutalist', 'terminal'];
 
 /**
  * Resolves the active theme. `mode` (light/dark) is a global concern owned by

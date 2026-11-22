@@ -1,4 +1,4 @@
-import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { useMemo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -11,9 +11,11 @@ interface Props {
   onChange: (tab: Tab) => void;
 }
 
-const TABS: { id: Tab; label: string; icon: keyof typeof Feather.glyphMap }[] = [
-  { id: 'timeline', label: 'Timeline', icon: 'clock' },
-  { id: 'settings', label: 'Settings', icon: 'user' },
+type IoniconName = keyof typeof Ionicons.glyphMap;
+
+const TABS: { id: Tab; label: string; icon: IoniconName; activeIcon: IoniconName }[] = [
+  { id: 'timeline', label: 'Timeline', icon: 'hourglass-outline', activeIcon: 'hourglass' },
+  { id: 'settings', label: 'Settings', icon: 'settings-outline', activeIcon: 'settings' },
 ];
 
 const ICON_SIZE = 22;
@@ -38,7 +40,7 @@ export function TabBar({ activeTab, onChange }: Props) {
             accessibilityState={{ selected: active }}
             accessibilityLabel={tab.label}
           >
-            <Feather name={tab.icon} size={ICON_SIZE} color={tint} />
+            <Ionicons name={active ? tab.activeIcon : tab.icon} size={ICON_SIZE} color={tint} />
             <Text style={[styles.label, { color: tint }, active && styles.labelActive]}>{tab.label}</Text>
           </Pressable>
         );
